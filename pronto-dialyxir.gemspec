@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['apelsinka223@gmail.com']
 
   spec.summary       = 'Pronto runner for Dialyxir'
-  spec.homepage      = 'https://github.com/llcaeon/pronto-dialyxir'
+  spec.homepage      = 'https://github.com/Apelsinka223/pronto-dialyxir'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

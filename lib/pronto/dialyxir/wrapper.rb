@@ -24,7 +24,7 @@ module Pronto
       end
 
       def dialyxir_executable
-        "mix dialyzer --format short --no-check --quiet"
+        "mix dialyzer --format short --quiet"
       end
     end
   end

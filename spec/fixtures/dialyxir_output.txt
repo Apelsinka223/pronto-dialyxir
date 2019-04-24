@@ -1,8 +1,27 @@
-lib/my_app/suggestions.ex:6:no_return Function method/1 has no local return.
-lib/my_app_web/uploaders/images.ex:1:pattern_match_cov The pattern can never match the type since it covered by previous clauses.
-lib/my_app_web/channels/user_socket.ex:61:callback_arg_type_mismatch Type mismatch in 1st argument for id/1 callback in Phoenix.Socket behaviour.
-lib/my_app/dispatcher.ex:102:guard_fail Guard test can never succeed.
-lib/my_app/db.ex:12:no_return Function get/1 has no local return.
-lib/my_app/db.ex:66:call The function call will fail.
-lib/my_app/db.ex:93:call_to_missing Call to missing or private function MyApp.Db.subscribe/1.
-lib/my_app/accounts/user.ex:35:pattern_match The pattern can never match the type.
+lib/my_app/db.ex:12:invalid_contract
+The @spec for the function does not match the success typing of the function.
+
+Function:
+Chat.Helpers.Checks.MACRO-id_empty?/2
+
+Success typing:
+@spec MACRO-id_empty?(_, _) ::
+  {:or, [{:context, Chat.Helpers.Checks} | {:import, Kernel}, ...],
+   [{:==, [any(), ...], [any(), ...]} | {:is_nil, [any(), ...], [any(), ...]}, ...]}
+________________________________________________________________________________
+lib/my_app/db.ex:66:pattern_match
+The pattern can never match the type.
+
+Pattern:
+false
+
+Type:
+true
+________________________________________________________________________________
+lib/my_app/db.ex:93:pattern_match_cov
+The pattern
+_resolution, _
+
+can never match since previous clauses completely cover the type
+_, _
+________________________________________________________________________________

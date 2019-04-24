@@ -20,15 +20,16 @@ module Pronto
                   }]
         end
 
-        output.lines.map do |line|
-          line_parts = line.split(':')
-          type, message = line_parts[2..-1].join(":").split(' ', 2)
-          next unless file.start_with?(line_parts[0])
+        output.split(%r{_{80}}).map do |message|
+          message = message.lstrip
+          path_parts = message.lines.first.split(':')
+          text = message.lines.drop(1).join()
+          next unless file.start_with?(path_parts[0])
           {
-            line: line_parts[1].to_i,
+            line: path_parts[1].to_i,
             column: nil,
             level: :warning,
-            message: message.chomp("\n")
+            message: text.chomp("\n")
           }
         end.compact
       end

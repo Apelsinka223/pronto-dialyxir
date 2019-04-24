@@ -15,17 +15,36 @@ RSpec.describe Pronto::Dialyxir::OutputParser do
           { line: 12,
             :column => nil,
             :level => :warning,
-            :message=>"Function get/1 has no local return."
+            :message =>
+              %q(The @spec for the function does not match the success typing of the function.
+
+Function:
+Chat.Helpers.Checks.MACRO-id_empty?/2
+
+Success typing:
+@spec MACRO-id_empty?(_, _) ::
+  {:or, [{:context, Chat.Helpers.Checks} | {:import, Kernel}, ...],
+   [{:==, [any(), ...], [any(), ...]} | {:is_nil, [any(), ...], [any(), ...]}, ...]})
           },
           { line: 66,
             :column => nil,
             :level => :warning,
-            :message => "The function call will fail."
+            :message => %q(The pattern can never match the type.
+
+Pattern:
+false
+
+Type:
+true)
           },
           { line: 93,
             :column => nil,
             :level => :warning,
-            :message => "Call to missing or private function MyApp.Db.subscribe/1."
+            :message => %q(The pattern
+_resolution, _
+
+can never match since previous clauses completely cover the type
+_, _)
           }
         ]
       )
