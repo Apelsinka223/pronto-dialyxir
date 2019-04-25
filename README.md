@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/pronto-dialyxir.svg)](https://badge.fury.io/rb/pronto-dialyxir)
+
 Dialyxir-pronto
 ============
 
