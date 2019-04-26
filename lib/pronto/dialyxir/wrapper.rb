@@ -23,7 +23,7 @@ module Pronto
       end
 
       def dialyxir_executable
-        "mix dialyzer --quiet --ignore-exit-status"
+        "mix dialyzer --quiet"
       end
     end
   end

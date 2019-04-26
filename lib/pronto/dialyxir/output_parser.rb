@@ -23,10 +23,10 @@ module Pronto
         output.split(%r{_{80}}).map do |message|
           message = message.lstrip
           path_parts = message.lines.first.split(':')
+          next unless file.start_with?(path_parts[0])
           text = message.lines.drop(1).join()
           next if text.nil?
-          text = text.gsub("_", "\_").gsub(":", "\:")
-          next unless file.start_with?(path_parts[0])
+          text = text.gsub("_", "\_").gsub(":", "\:").gsub("@", "\@")
           {
             line: path_parts[1].to_i,
             column: nil,
