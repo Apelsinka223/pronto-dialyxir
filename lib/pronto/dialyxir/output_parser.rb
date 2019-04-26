@@ -24,6 +24,8 @@ module Pronto
           message = message.lstrip
           path_parts = message.lines.first.split(':')
           text = message.lines.drop(1).join()
+          next if text.nil?
+          text = text.gsub("_", "\_").gsub(":", "\:")
           next unless file.start_with?(path_parts[0])
           {
             line: path_parts[1].to_i,

@@ -18,13 +18,12 @@ module Pronto
       private
 
       def run_linter
-        stdout, stderr, _ = Open3.capture3(dialyxir_executable)
-        puts "WARN: pronto-dialyxir: #{stderr}" if stderr && stderr.size > 0
-        stdout
+        _, stderr, _ = Open3.capture3(dialyxir_executable)
+        stderr
       end
 
       def dialyxir_executable
-        "mix dialyzer --format short --quiet"
+        "mix dialyzer --quiet --ignore-exit-status"
       end
     end
   end
